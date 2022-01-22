@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Zombie : Monstre
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public override void Jump()
     {
-        
+        Debug.Log("saute depuis la classe zombie");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

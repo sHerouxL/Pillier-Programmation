@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerControler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public delegate void OnPlayerSpawn(bool value);
+    public static event OnPlayerSpawn onPlayerSpawn;
+
+    private Vector3 posClick;
+    public float MaxDistance = 100;
+
     void Start()
     {
-        
+        Debug.Log("start class playerControler");
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnZombie()
     {
-        
+        onPlayerSpawn?.Invoke(true); ;
     }
 }

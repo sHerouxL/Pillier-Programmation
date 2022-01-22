@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class GameControler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public delegate void OnWaveRequest(bool value, int Quantite);
+    public static event OnWaveRequest onWaveRequest;
+
+    private PlayerControler playerControler;
+    private bool GameON = false;
+    void OnEnable()
     {
-        
+        MenuUIHandeler.onGameReady += GameReady;
+        PlayerControler.onPlayerSpawn += SpawnRequest;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        MenuUIHandeler.onGameReady -= GameReady;
+        PlayerControler.onPlayerSpawn -= SpawnRequest;
     }
+
+    public void GameReady(bool value)
+    {
+        if (value)
+            GameON = true;
+
+        //onWaveRequest?.Invoke(true, 6); ;
+    }
+
+    public void SpawnRequest(bool value)
+    {
+        Debug.Log("SpawnRequest from game controler");
+        if (value)
+            onWaveRequest?.Invoke(true, 6); ;
+
+
+    }
+
 }

@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private Enemy enemy;
+    //MyScript script = obj.AddComponent<MyScript>();
+
+    private void Start()
     {
-        
+        //Constructeur de Unity GetComponent vs New, spécific CSharp constructor 
+        enemy = GameObject.Find("EnemyHolder").GetComponentInChildren<Enemy>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // inscription a un evenement et entre dans la fonction si message envoyé, 
+    void OnEnable()
     {
-        
+        GameControler.onWaveRequest += WaveRequested;
     }
+
+    void OnDisable()
+    {
+        GameControler.onWaveRequest -= WaveRequested;
+    }
+
+
+
+    public void WaveRequested(bool value, int Quantite)
+    {
+        Debug.Log("SpawnRequest from wave generator");
+        if (value)
+            enemy.CreateEnemy(Quantite);
+
+    }
+
+
+
+
+
 }
