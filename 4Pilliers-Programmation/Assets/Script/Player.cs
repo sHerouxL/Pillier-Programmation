@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour
     private Archer archer;
     private Guerrier guerrier;
     private Magicien magicien;
+
+    public Text NomJoueur, oVie, ofor, oEnd, oInt, oFoi;
 
     [SerializeField]
     private int PlayerLife, PlayerStrong, PlayerEnduro;
@@ -30,6 +33,10 @@ public class Player : MonoBehaviour
 
     public void CreatePlayer(int Qty)
     {
+
+        archer.NameControle = MainManager.Instance.NomPlayer;
+        NomJoueur.text = archer.NameControle;
+
         archer.Afficher();
         archer.Jump();
         archer.Walk();

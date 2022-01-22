@@ -39,8 +39,11 @@ public class GameControler : MonoBehaviour
             GameON = true;
 
 
-        player.CreatePlayer(2);
 
+
+
+        player.CreatePlayer(2);
+       
         //onWaveRequest?.Invoke(true, 6); ;
     }
 

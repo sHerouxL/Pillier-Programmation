@@ -6,8 +6,8 @@ public class MainManager : MonoBehaviour
 
     public static MainManager Instance { get; private set; }
 
-    public string NomPlayer;
-    public string ClassePlayer;
+    public string NomPlayer, ClassePlayer;
+    public int ViePlayer, ForcePlayer, EnduroPlayer, IntelloPlayer, FoiPlayer;
 
     private void Awake()
     {
@@ -23,9 +23,15 @@ public class MainManager : MonoBehaviour
     }
 
 
-    public void setClasse(string Classe)
+    public void setClasse(string Classe, int Vie, int For, int End, int Int, int Foi)
     {
         ClassePlayer = Classe;
+        ViePlayer = Vie;
+        ForcePlayer = For;
+        EnduroPlayer = End;
+        IntelloPlayer = Int;
+        FoiPlayer = Foi;
+
     }
 
     public void setName(string Name)
@@ -33,12 +39,12 @@ public class MainManager : MonoBehaviour
         NomPlayer = Name;
     }
 
-
+   
     [System.Serializable]
     class SaveData
     {
-        public string NomPlayer;
-        public string ClassePlayer;
+        public string NomPlayer,ClassePlayer;
+        public int Vie, Force, Enduro, Intello, Foi;
     }
 
     public void SavePlayer()
@@ -47,6 +53,11 @@ public class MainManager : MonoBehaviour
 
         data.NomPlayer = NomPlayer;
         data.ClassePlayer = ClassePlayer;
+        data.Vie = ViePlayer;
+        data.Force = ForcePlayer;
+        data.Enduro = EnduroPlayer;
+        data.Intello = IntelloPlayer;
+        data.Foi = FoiPlayer;
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
@@ -62,6 +73,11 @@ public class MainManager : MonoBehaviour
 
             NomPlayer = data.NomPlayer;
             ClassePlayer = data.ClassePlayer;
+            ViePlayer = data.Vie ;
+            ForcePlayer = data.Force;
+            EnduroPlayer = data.Enduro;
+            IntelloPlayer = data.Intello;
+            FoiPlayer = data.Foi;
         }
     }
 }
