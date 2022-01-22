@@ -10,6 +10,7 @@ public abstract class Personnage : MonoBehaviour
     public static Personnage Instance { get; private set; }
 
     private string NomPerso;
+    private string ClassePerso;
     private int ViePerso = 100;
     //private int Force = 10;
 
@@ -25,6 +26,11 @@ public abstract class Personnage : MonoBehaviour
         set { NomPerso = value; } // setter uses backing field
     }
 
+    public string ClasseControle // delete semicolon
+    {
+        get { return ClassePerso; } // getter returns backing field
+        set { ClassePerso = value; } // setter uses backing field
+    }
 
     void awake()
     {
@@ -38,9 +44,6 @@ public abstract class Personnage : MonoBehaviour
 
 
     }
-
-    // Humain détecte créature avec range fonction du perso attaque sinon retour point vecteur donne (vecteur vs collider)
-    // Enemy cherche un objet a détruire et attaque personnage seulement si un range en fonction du genre de creature
 
     // Polymorphysme, Unlike virtual methods for which overriding is optional, this method uses the abstract notation, which indicates that it must be overridden
     protected abstract void FindTarget();
@@ -64,7 +67,7 @@ public abstract class Personnage : MonoBehaviour
 
     public void Afficher()
     {
-        Debug.Log("Affiche depuis la classe personnage");
+        Debug.Log("Affiche depuis la classe personnage" + NomPerso);
     }
 
     //Afficheur générique, on peut lui passer n'importe quoi

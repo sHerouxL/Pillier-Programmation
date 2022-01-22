@@ -17,7 +17,7 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-    public void SpawnZombie()
+    public void SpawnCreature()
     {
         onPlayerSpawn?.Invoke(true); ;
     }

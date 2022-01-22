@@ -6,9 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    private Enemy PlayerTarget;
-    private Guerrier PlayerChoice;
-    private Personnage Perso;
+    private Archer archer;
+    private Guerrier guerrier;
+    private Magicien magicien;
 
     [SerializeField]
     private int PlayerLife, PlayerStrong, PlayerEnduro;
@@ -20,14 +20,30 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Classe Player lancée");
+        Debug.Log("Classe Player lancée");        
 
-        NamePlayer = MainManager.Instance.NomPlayer;
-        ClassePlayer = MainManager.Instance.ClassePlayer;
+        archer = GameObject.Find("Archer").GetComponent<Archer>();
+        guerrier = GameObject.Find("Guerrier").GetComponent<Guerrier>();
+        magicien = GameObject.Find("Magicien").GetComponent<Magicien>();
 
     }
 
+    public void CreatePlayer(int Qty)
+    {
+        archer.Afficher();
+        archer.Jump();
+        archer.Walk();
 
+        guerrier.Afficher();
+        guerrier.Jump();
+        guerrier.Walk();
+
+        //archer.NameControle = MainManager.Instance.NomPlayer;
+        //archer.ClasseControle = MainManager.Instance.ClassePlayer;
+
+
+        //archer.Walk();
+    }
 
 
 

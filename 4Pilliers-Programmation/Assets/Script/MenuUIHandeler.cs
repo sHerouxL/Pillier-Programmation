@@ -22,6 +22,7 @@ public class MenuUIHandeler : MonoBehaviour
     void Start()
     {
         mClasse = "Champion";
+        SceneManager.UnloadSceneAsync(0);
     }
 
     public void ValiderNom()
@@ -36,7 +37,7 @@ public class MenuUIHandeler : MonoBehaviour
         MainManager.Instance.setClasse(mClasse);
         MainManager.Instance.SavePlayer();
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         onGameReady?.Invoke(true); ;
     }
 
