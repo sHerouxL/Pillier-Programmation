@@ -7,8 +7,7 @@ public class Humain : Personnage
     // Polymorphysme method virtual indicates that it can, but doesn’t have to, be overridden..
     public override string Attaque(string value)
     {
-        return value + "  -- les humain ont un attaque Spécial, elle override celle de la classe parent "; 
-        //Debug.Log(value + "  -- les humain ont un attaque Spécial, elle override celle de la classe parent ");
+        return value + "  -- les humain ont un attaque Spécial, elle override celle de la classe parent ";        
     }
 
     // Polymorphysme, Unlike virtual methods for which overriding is optional, this method uses the abstract notation, which indicates that it must be overridden

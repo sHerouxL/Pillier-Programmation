@@ -78,6 +78,8 @@ public class MainManager : MonoBehaviour
             EnduroPlayer = data.Enduro;
             IntelloPlayer = data.Intello;
             FoiPlayer = data.Foi;
+
+           
         }
     }
 }

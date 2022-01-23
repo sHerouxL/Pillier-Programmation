@@ -104,12 +104,4 @@ public class Player : MonoBehaviour
 
     }
 
-    public void findTarget()
-    {
-
-        //Humain humain = GameObject.Find("Humain").GetComponent<Humain>();
-        //humain.fi
-    }
-
-
 }

@@ -30,14 +30,22 @@ public class MenuUIHandeler : MonoBehaviour
     [SerializeField]
     private int valDefault = 10;
 
+    [System.Serializable]
+    class LoadData
+    {
+        public string NomPlayer, ClassePlayer;
+        public int Vie, Force, Enduro, Intello, Foi;
+    }
+
     void Start()
     {
-        //SceneManager.UnloadSceneAsync(0);
-
+      
+           
     }
 
 
-    public void ValiderNom()    {
+    public void ValiderNom()  
+    {
         
       
     }
@@ -89,6 +97,19 @@ public class MenuUIHandeler : MonoBehaviour
         oEnduro.text = Enduro.ToString();
         oIntello.text = Intello.ToString();
         oFoi.text = Foi.ToString();
+
+    }
+
+    public void LoadGame()
+    {
+        MainManager.Instance.LoadChampion();
+        inputName.text = MainManager.Instance.NomPlayer;
+        ClasseName.text = MainManager.Instance.ClassePlayer;
+        oVie.text = MainManager.Instance.ViePlayer.ToString();
+        oForce.text = MainManager.Instance.ForcePlayer.ToString();
+        oEnduro.text = MainManager.Instance.EnduroPlayer.ToString();
+        oIntello.text = MainManager.Instance.IntelloPlayer.ToString();
+        oFoi.text = MainManager.Instance.FoiPlayer.ToString();
 
     }
 

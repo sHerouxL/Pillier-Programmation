@@ -28,7 +28,7 @@ public class GameControler : MonoBehaviour
     public void Start()
     {
         player = GameObject.Find("PlayerHolder").GetComponentInChildren<Player>();
-        Debug.Log("player created from gameControler");
+  
     }
 
 
@@ -37,20 +37,12 @@ public class GameControler : MonoBehaviour
     {
         if (value)
             GameON = true;
-
-
-
-
-
-        player.CreatePlayer(2);
-       
-        //onWaveRequest?.Invoke(true, 6); ;
     }
 
     public void SpawnRequest(bool value)
     {
-        Debug.Log("SpawnRequest from game controler");
-        if (value)
+       
+        if (value && GameON)
             onWaveRequest?.Invoke(true, 6); ;
 
 

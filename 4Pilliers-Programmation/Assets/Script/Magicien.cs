@@ -7,6 +7,6 @@ public class Magicien : Humain
     // Start is called before the first frame update
     public override string Defence(string value)
     {
-        return value + " Les magicien ont un mallus en défence ";
+        return value + " Les magicien ont une défense spécifique de sa classe";
     }
 }

@@ -49,7 +49,7 @@ public abstract class Personnage : MonoBehaviour
 
     public virtual void GoTo(Vector3 position)
     {
-        // marche vers le point a
+       
     }
 
 
@@ -71,27 +71,21 @@ public abstract class Personnage : MonoBehaviour
 
     public virtual string Jump(string value)
     {
-
-        //Debug.Log("saute depuis la base classe personnage");
-        return value + "saute depuis la base classe personnage";
+        return value + "  saute depuis la base classe personnage";
     }
 
     public virtual string Walk(string value)
     {
         return value + "  marche depuis la base classe personnage";
-        //Debug.Log(value + "  marche depuis la base classe personnage");
     }
 
     public virtual string Attaque(string value)
     {
-        return value + "  Attaque depuis la base classe personnage";
-        //Debug.Log(value + "  Attaque depuis la base classe personnage");
+        return value + "  Attaque depuis la base classe personnage";  
     }
 
     public virtual string Defence(string value)
     {
-        //WalkText.text = "marche depuis la classe personnage";
-        //Debug.Log(value + "  Défence depuis la base classe personnage");
         return value + "  Défence depuis la base classe personnage";
     }
 }
