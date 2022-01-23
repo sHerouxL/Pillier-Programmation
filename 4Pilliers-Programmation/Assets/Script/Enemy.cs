@@ -37,13 +37,6 @@ public class Enemy : MonoBehaviour
 
     public void CreateEnemy(int Qty)
     {
-        zombie.Afficher();
-        zombie.Jump();
-        zombie.Walk();
-
-        ghoule.Afficher();
-        ghoule.Jump();
-        ghoule.Walk();
 
 
         int RandomEnemy = Random.Range(0, EnemyListe.Count);
@@ -53,6 +46,7 @@ public class Enemy : MonoBehaviour
 
         GameObject enemy = Instantiate(EnemyListe[RandomEnemy], EnemySpawnPoint[RandomPosition].transform.position, Quaternion.identity, EnemyHolder.transform) as GameObject;
 
+     
         enemy.SetActive(true);
         enemy.name = "ZombieSylvain";
 

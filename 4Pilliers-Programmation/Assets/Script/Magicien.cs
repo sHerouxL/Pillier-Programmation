@@ -5,14 +5,8 @@ using UnityEngine;
 public class Magicien : Humain
 {
     // Start is called before the first frame update
-    void Start()
+    public override string Defence(string value)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        return value + " Les magicien ont un mallus en défence ";
     }
 }

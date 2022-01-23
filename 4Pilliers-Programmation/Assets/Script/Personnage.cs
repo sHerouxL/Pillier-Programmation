@@ -12,7 +12,7 @@ public abstract class Personnage : MonoBehaviour
     private string NomPerso;
     private string ClassePerso;
     private int ViePerso = 100;
-    //private int Force = 10;
+
 
     public int LifeControle // delete semicolon
     {
@@ -32,21 +32,9 @@ public abstract class Personnage : MonoBehaviour
         set { ClassePerso = value; } // setter uses backing field
     }
 
-    void awake()
-    {
-        Debug.Log("Classe personnage lancée dans l'awake");
-
-    }
-
-    void Start()
-    {
-        Debug.Log("Classe personnage lancée");
-
-
-    }
 
     // Polymorphysme, Unlike virtual methods for which overriding is optional, this method uses the abstract notation, which indicates that it must be overridden
-    protected abstract void FindTarget();
+    protected abstract void FindTarget(string value);
 
     // method overloading
     public virtual void GoTo(Enemy enemy)
@@ -65,11 +53,6 @@ public abstract class Personnage : MonoBehaviour
     }
 
 
-    public void Afficher()
-    {
-        Debug.Log("Affiche depuis la classe personnage" + NomPerso);
-    }
-
     //Afficheur générique, on peut lui passer n'importe quoi
     public void Afficheur<T>(T valeur)
     {
@@ -86,22 +69,32 @@ public abstract class Personnage : MonoBehaviour
         }
     }
 
-    public virtual void Jump()
+    public virtual string Jump(string value)
     {
 
-        Debug.Log("saute depuis la classe personnage");
-        //JumpText.text = "saute depuis la classe personnage";
+        //Debug.Log("saute depuis la base classe personnage");
+        return value + "saute depuis la base classe personnage";
     }
 
-    public virtual void Walk()
+    public virtual string Walk(string value)
+    {
+        return value + "  marche depuis la base classe personnage";
+        //Debug.Log(value + "  marche depuis la base classe personnage");
+    }
+
+    public virtual string Attaque(string value)
+    {
+        return value + "  Attaque depuis la base classe personnage";
+        //Debug.Log(value + "  Attaque depuis la base classe personnage");
+    }
+
+    public virtual string Defence(string value)
     {
         //WalkText.text = "marche depuis la classe personnage";
-        Debug.Log("marche depuis la classe personnage");
-    }
-
-    public void Defence()
-    {
-        Debug.Log("défence depuis la classe personnage");
+        //Debug.Log(value + "  Défence depuis la base classe personnage");
+        return value + "  Défence depuis la base classe personnage";
     }
 }
+
+
 

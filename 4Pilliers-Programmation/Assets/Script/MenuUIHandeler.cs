@@ -26,21 +26,20 @@ public class MenuUIHandeler : MonoBehaviour
     ////private List<(string, int)> SetupPerso = new List<(string myString, int monInt)>();
     private int Vie, Force, Enduro, Intello, Foi  = 10;
     public Text oVie, oForce, oEnduro, oIntello, oFoi;
-
+    
     [SerializeField]
     private int valDefault = 10;
 
     void Start()
-    {     
-        SceneManager.UnloadSceneAsync(0);
-       
+    {
+        //SceneManager.UnloadSceneAsync(0);
 
     }
 
 
-    public void ValiderNom()
-    {
-
+    public void ValiderNom()    {
+        
+      
     }
 
     private void setValeuClasse(int iVie, int iForce, int iEnduro, int iIntello, int iFoi)

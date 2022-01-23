@@ -18,11 +18,10 @@ public class Guerrier : Humain
     {
 
     }
-    public override void Attaque() // can override virtual methods from parent class
+    public override string Attaque(string value) // can override virtual methods from parent class
     {
-        mEnemy.EnemyLife -= 15;
-        Debug.Log(mEnemy.EnemyLife);
-
+        //Debug.Log(value + "  Ont une attaque spéciale qui est encore plus spécifique, override du grand-parent et celle du parent ");
+        return value + "  Ont une attaque spéciale qui est encore plus spécifique, override du grand-parent et celle du parent ";
     }
 
 }

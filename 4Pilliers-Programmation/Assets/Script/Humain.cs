@@ -5,13 +5,14 @@ using UnityEngine;
 public class Humain : Personnage
 {
     // Polymorphysme method virtual indicates that it can, but doesn’t have to, be overridden..
-    public virtual void Attaque()
+    public override string Attaque(string value)
     {
-       
+        return value + "  -- les humain ont un attaque Spécial, elle override celle de la classe parent "; 
+        //Debug.Log(value + "  -- les humain ont un attaque Spécial, elle override celle de la classe parent ");
     }
 
     // Polymorphysme, Unlike virtual methods for which overriding is optional, this method uses the abstract notation, which indicates that it must be overridden
-    protected override void FindTarget()
+    protected override void FindTarget(string value)
     {
         //Lance un scan pour detecter un présence 
     }
@@ -22,11 +23,11 @@ public class Humain : Personnage
         base.GoTo(position); // run method from base class
     }
 
-    public override void Walk()
+    public override string Walk(string value)
     {
+        value = base.Walk(value + "  -- les humain ont une actin a faire avant et ensuite on retourne dans la base classe + ");
+        return  value;
 
-        Debug.Log("marche depuis la classe humain");
-       
     }
 }
 
