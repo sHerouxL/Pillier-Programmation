@@ -10,10 +10,17 @@ public class Player : MonoBehaviour
     private Archer archer;
     private Guerrier guerrier;
     private Magicien magicien;
+    private Ghoule ghoule;
+    private Skelton skelton;
+    private Zombie zombie;
 
     public Text NomJoueur,ClasseJoueur, oVie, ofor, oEnd, oInt, oFoi;
-    public Text TextHumain;
+    public Text TextHumain,TextEnemy;
 
+    public Dropdown m_Dropdown;
+    public string m_Message;
+    public Text m_Text;
+    public int m_DropdownValue;
 
     [SerializeField]
     private int PlayerLife, PlayerStrong, PlayerEnduro;
@@ -30,6 +37,11 @@ public class Player : MonoBehaviour
         archer = GameObject.Find("Archer").GetComponent<Archer>();
         guerrier = GameObject.Find("Guerrier").GetComponent<Guerrier>();
         magicien = GameObject.Find("Magicien").GetComponent<Magicien>();
+        ghoule = GameObject.Find("Ghoule").GetComponent<Ghoule>();
+        skelton = GameObject.Find("Skelton").GetComponent<Skelton>();
+        zombie = GameObject.Find("Zombie").GetComponent<Zombie>();
+
+        m_Text.text = "Ghoule";
 
         FillCartouche();
 
@@ -56,13 +68,25 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ChooseEnnemy()
+    {
+        //Keep the current index of the Dropdown in a variable
+        m_DropdownValue = m_Dropdown.value;
+        //Change the message to say the name of the current Dropdown selection using the value
+        m_Message = m_Dropdown.options[m_DropdownValue].text;
+        //Change the onscreen Text to reflect the current Dropdown selection
+        m_Text.text = m_Message;
+    }
+
+
+
     public void marcher()
     {
         if (ClasseJoueur.text == "Archer")
             TextHumain.text = archer.Walk("Archer");
         else if (ClasseJoueur.text == "Guerrier")
             TextHumain.text = guerrier.Walk("Guerrier");
-        else
+        else 
             TextHumain.text = magicien.Walk("Magicien");
 
 
@@ -100,6 +124,51 @@ public class Player : MonoBehaviour
             TextHumain.text = guerrier.Defence("Guerrier");
         else
             TextHumain.text = magicien.Defence("Magicien");
+
+
+    }
+    public void Emarcher()
+    {
+        if (m_Text.text == "Ghoule")
+            TextEnemy.text = ghoule.Walk("Ghoule");
+        else if (m_Text.text == "Skelton")
+            TextEnemy.text = skelton.Walk("Skelton");
+        else if (m_Text.text == "Zombie")
+            TextEnemy.text = zombie.Walk("Zombie");
+
+
+    }
+
+    public void Eattaque()
+    {
+        if (m_Text.text == "Ghoule")
+            TextEnemy.text = ghoule.Attaque("Ghoule");
+        else if (m_Text.text == "Skelton")
+            TextEnemy.text = skelton.Attaque("Skelton");
+        else if (m_Text.text == "Zombie")
+            TextEnemy.text = zombie.Attaque("Zombie");
+    }
+
+    public void Esauter()
+    {
+        if (m_Text.text == "Ghoule")
+            TextEnemy.text = ghoule.Jump("Ghoule");
+        else if (m_Text.text == "Skelton")
+            TextEnemy.text = skelton.Jump("Skelton");
+        else if (m_Text.text == "Zombie")
+            TextEnemy.text = zombie.Jump("Zombie");
+
+
+    }
+
+    public void Edefendre()
+    {
+        if (m_Text.text == "Ghoule")
+            TextEnemy.text = ghoule.Defence("Ghoule");
+        else if (m_Text.text == "Skelton")
+            TextEnemy.text = skelton.Defence("Skelton");
+        else if (m_Text.text == "Zombie")
+            TextEnemy.text = zombie.Defence("Zombie");
 
 
     }

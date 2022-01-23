@@ -56,7 +56,7 @@ public abstract class Personnage : MonoBehaviour
     //Afficheur générique, on peut lui passer n'importe quoi
     public void Afficheur<T>(T valeur)
     {
-        Debug.Log("Affiche depuis la classe Génerique :  " + valeur + "  " + valeur.GetType());
+        Debug.Log(" && Affiche depuis la classe Génerique :  " + valeur + "  " + valeur.GetType());
     }
 
     public void Ajouter<T>(T x, T y)
@@ -71,22 +71,22 @@ public abstract class Personnage : MonoBehaviour
 
     public virtual string Jump(string value)
     {
-        return value + "  saute depuis la base classe personnage";
+        return value + " && saute depuis la base classe personnage && ";
     }
 
     public virtual string Walk(string value)
     {
-        return value + "  marche depuis la base classe personnage";
+        return value + " && marche depuis la base classe personnage && ";
     }
 
     public virtual string Attaque(string value)
     {
-        return value + "  Attaque depuis la base classe personnage";  
+        return value + " && Attaque depuis la base classe personnage && ";  
     }
 
     public virtual string Defence(string value)
     {
-        return value + "  Défence depuis la base classe personnage";
+        return value + " && Défence depuis la base classe personnage && ";
     }
 }
 
