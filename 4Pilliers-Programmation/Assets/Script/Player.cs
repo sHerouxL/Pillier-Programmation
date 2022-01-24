@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
 
         m_Text.text = "Ghoule";
 
+        //Abstraction
         FillCartouche();
 
     }

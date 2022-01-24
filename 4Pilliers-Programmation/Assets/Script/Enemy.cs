@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
     public void CreateEnemy(int Qty)
     {
 
-
         int RandomEnemy = Random.Range(0, EnemyListe.Count);
         int RandomPosition = Random.Range(0, EnemySpawnPoint.Count);
 

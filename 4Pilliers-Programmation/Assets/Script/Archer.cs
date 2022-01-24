@@ -23,12 +23,7 @@ public class Archer : Humain
         {
             return value + " $$ Les archer ne font pas l'action spécial de l'humain, méthode differnte override 3iem niveau $$ ";
         }
-
-
-
-
-
-        
+               
     }
 
 }

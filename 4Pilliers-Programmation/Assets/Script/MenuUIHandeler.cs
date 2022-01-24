@@ -136,11 +136,3 @@ public class MenuUIHandeler : MonoBehaviour
 
 }
 
-public class Track
-{    
-    public int Vie { get; set; }
-    public int Force { get; set; }
-    public int Enduro { get; set; }
-    public int Intello { get; set; }
-    public int Foi { get; set; }
-}

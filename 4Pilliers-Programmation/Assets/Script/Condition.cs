@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Condition : MonoBehaviour
 
-    // Start is called before the first frame update
+    // Encapsulation
 {
   public bool Night  // property
     { get; set; }
