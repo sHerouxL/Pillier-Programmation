@@ -16,11 +16,11 @@ public class Player : MonoBehaviour
 
     public Text NomJoueur,ClasseJoueur, oVie, ofor, oEnd, oInt, oFoi;
     public Text TextHumain,TextEnemy;
+    public Toggle ToggleDay, ToggleAllie, ToggleBless, ToggleBoss, ToggleCurse;
 
     public Dropdown m_Dropdown;
-    public string m_Message;
     public Text m_Text;
-    public int m_DropdownValue;
+    private int m_DropdownValue;
 
     [SerializeField]
     private int PlayerLife, PlayerStrong, PlayerEnduro;
@@ -58,8 +58,16 @@ public class Player : MonoBehaviour
         oFoi.text = MainManager.Instance.FoiPlayer.ToString();
     }
 
-    public void CreatePlayer(int Qty)
+    public void SetCondition()
     {
+        Condition condition = GameObject.Find("PlayerHolder").GetComponent<Condition>();
+
+        condition.Night = ToggleDay.isOn;
+        condition.Allie = ToggleAllie.isOn;
+        condition.Bless = ToggleBless.isOn;
+        condition.Boss = ToggleBoss.isOn;
+        condition.Curse = ToggleCurse.isOn;
+
 
     }
 
@@ -70,12 +78,8 @@ public class Player : MonoBehaviour
 
     public void ChooseEnnemy()
     {
-        //Keep the current index of the Dropdown in a variable
-        m_DropdownValue = m_Dropdown.value;
-        //Change the message to say the name of the current Dropdown selection using the value
-        m_Message = m_Dropdown.options[m_DropdownValue].text;
-        //Change the onscreen Text to reflect the current Dropdown selection
-        m_Text.text = m_Message;
+        m_DropdownValue = m_Dropdown.value;        
+        m_Text.text = m_Dropdown.options[m_DropdownValue].text;
     }
 
 
